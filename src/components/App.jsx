@@ -13,7 +13,9 @@ const mockTracks = [
 function App() {
   const [searchResults, setSearchResults] = useState(mockTracks);
   const [playlistTracks, setPlaylistTracks] = useState([]);
-
+  const [playlistName, setPlaylistName] = useState('My Playlist');
+  
+  
   const addTrack = (track) => {
     if (playlistTracks.some(t => t.id === track.id)) return; // no duplicates
     setPlaylistTracks([...playlistTracks, track]);
@@ -23,12 +25,22 @@ function App() {
     setPlaylistTracks(playlistTracks.filter(t => t.id !== track.id));
 };
 
+const renamePlaylist = (newName) => {
+  setPlaylistName(newName);
+};
+
 return (
   <div>
     <SearchBar onSearch={setSearchResults} allTracks={mockTracks} />
     <SearchResults searchResults={searchResults} onAdd={addTrack} />
-    <Playlist playlistTracks={playlistTracks} onRemove={removeTrack} />
+    <Playlist
+    playlistName={playlistName}
+    playlistTracks={playlistTracks} 
+    onRemove={removeTrack}
+    onRename={renamePlaylist}
+    />
   </div>
  );
 }
+
 export default App
