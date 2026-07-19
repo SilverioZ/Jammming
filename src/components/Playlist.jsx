@@ -7,7 +7,12 @@ function Playlist({ playlistName, playlistTracks, onRemove, onRename }) {
 
   const handleSave = () => {
     const trimmed = draftName.trim();
-    onRename(trimmed || playlistName); // don't allow blank names
+    onRename(trimmed || playlistName);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setDraftName(playlistName);
     setIsEditing(false);
   };
 
@@ -21,9 +26,7 @@ function Playlist({ playlistName, playlistTracks, onRemove, onRename }) {
             autoFocus
           />
           <button onClick={handleSave}>Save</button>
-          <button onClick={() => { setDraftName(playlistName); setIsEditing(false); }}>
-            Cancel
-          </button>
+          <button onClick={handleCancel}>Cancel</button>
         </div>
       ) : (
         <h2>
@@ -32,11 +35,7 @@ function Playlist({ playlistName, playlistTracks, onRemove, onRename }) {
         </h2>
       )}
 
-      <TrackList
-        tracks={playlistTracks}
-        onAction={onRemove}
-        actionLabel="− Remove"
-      />
+      <TrackList tracks={playlistTracks} onAction={onRemove} actionLabel="− Remove" />
     </div>
   );
 }
