@@ -67,7 +67,7 @@ function App() {
       {!username ? (
         <LoginForm onLogin={login} />
       ) : (
-        <>
+        <div className="dashboard">
           <div className="account-bar">
             <span>Logged in as {username}</span>
             <button onClick={logout}>Log Out</button>
@@ -86,7 +86,7 @@ function App() {
           </div>
 
           <button onClick={savePlaylist}>Save Playlist</button>
-        </>
+        </div>
       )}
     </div>
   );
