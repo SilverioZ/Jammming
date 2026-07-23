@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --ink: #12171f;
+  --ink-deep: #0c1015;
+  --surface: #1b232d;
+  --surface-raised: #232d3a;
+  --parchment: #f4efe4;
+  --parchment-dim: #b7b0a0;
+  --gold: #eab454;
+  --gold-soft: #f3c877;
+  --gold-dim: #a97b34;
+  --teal: #57b3a8;
+  --line: #303c4a;
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 0%, #1a2230 0%, var(--ink) 45%, var(--ink-deep) 100%);
+  background-attachment: fixed;
+  color: var(--parchment);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* --- Header / signature element --- */
+
+.app > h1 {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.5vw, 3.6rem);
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin: 1rem 0 2.5rem;
+  color: var(--parchment);
+}
+
+.app > h1 .accent-m {
+  color: var(--gold-soft);
+  text-shadow: 0 0 24px rgba(234, 180, 84, 0.35);
+}
+
+.app > h1::before {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--ink) 0 6px, transparent 7px),
+    repeating-radial-gradient(
+      circle at center,
+      var(--gold-dim) 0 1px,
+      transparent 1px 6px
+    );
+  border: 1px solid var(--line);
+  box-shadow: 0 0 30px rgba(234, 180, 84, 0.12);
+}
+
+/* --- Login --- */
+
+form {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+form input {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  padding: 0.7rem 1.05rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  min-width: 220px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+form input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(234, 180, 84, 0.18);
+}
+
+/* --- Buttons --- */
+
+button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.15rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  background: var(--surface-raised);
+  color: var(--parchment);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+form button {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold-dim));
+  color: var(--ink);
+  box-shadow: 0 4px 16px rgba(234, 180, 84, 0.25);
+}
+
+.account-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--parchment-dim);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.account-bar button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--parchment-dim);
+}
+
+/* --- Search bar --- */
+
+.app > input[type="text"] {
+  display: block;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  padding: 0.9rem 1.15rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.app > input[type="text"]:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(234, 180, 84, 0.18);
+}
+
+.app > input[type="text"]::placeholder {
+  color: var(--parchment-dim);
+}
+
+/* --- Main content: two columns --- */
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-results,
+.playlist {
+  background: linear-gradient(180deg, var(--surface), var(--ink));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.search-results h2,
+.playlist h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.playlist h2 button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--teal);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.playlist-rename {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.playlist-rename input {
+  flex: 1;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  color: var(--parchment);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.playlist-rename button:first-of-type {
+  background: linear-gradient(135deg, var(--teal), #3d8a80);
+  color: var(--ink);
+}
+
+/* --- Track list, styled like a numbered tracklist --- */
+
+.track-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+}
+
+.track {
+  counter-increment: track;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.4rem;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.track:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.track:last-child {
+  border-bottom: none;
+}
+
+.track::before {
+  content: counter(track);
+  font-family: var(--font-display);
+  color: var(--gold-dim);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.track > span:nth-of-type(1) {
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: 500;
+  color: var(--parchment);
+}
+
+.track > span:nth-of-type(2),
+.track > span:nth-of-type(3) {
+  grid-column: 2;
+  font-size: 0.8rem;
+  color: var(--parchment-dim);
+}
+
+.track {
+  grid-template-rows: auto auto;
+}
+
+.track > span:nth-of-type(2)::before {
+  content: "";
+}
+
+.track > span:nth-of-type(3)::before {
+  content: " · ";
+}
+
+.track button {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-soft);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+}
+
+.playlist .track button {
+  border-color: var(--line);
+  color: var(--teal);
+}
+
+.track button:hover {
+  background: var(--surface-raised);
+}
+
+/* --- Drag and drop reordering --- */
+
+.track[draggable="true"] {
+  cursor: grab;
+}
+
+.track.dragging {
+  opacity: 0.4;
+}
+
+.track.drag-over {
+  border-top: 2px solid var(--gold);
+}
+
+.drag-handle {
+  color: var(--parchment-dim);
+  font-size: 0.9rem;
+  cursor: grab;
+}
+
+/* --- Save button --- */
+
+.app > button {
+  display: block;
+  margin: 2rem auto 0;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold-dim));
+  color: var(--ink);
+  font-size: 0.95rem;
+  padding: 0.8rem 2.2rem;
+  box-shadow: 0 6px 20px rgba(234, 180, 84, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
+
+/* --- Dashboard: the logged-in workspace --- */
+
+.dashboard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.85rem;
+  box-shadow: var(--shadow);
+  animation: dashboard-in 0.3s ease-out;
+}
+
+.dashboard .account-bar {
+  border-bottom-color: var(--line);
+}
+
+.dashboard .search-results,
+.dashboard .playlist {
+  background: var(--surface-raised);
+}
+
+@keyframes dashboard-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard {
+    animation: none;
+  }
+}
