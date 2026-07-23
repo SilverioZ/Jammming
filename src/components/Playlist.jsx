@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TrackList from "./TrackList";
 
-function Playlist({ playlistName, playlistTracks, onRemove, onRename }) {
+function Playlist({ playlistName, playlistTracks, onRemove, onRename, onReorder }) {
   const [isEditing, setIsEditing] = useState(false);
   const [draftName, setDraftName] = useState(playlistName);
 
