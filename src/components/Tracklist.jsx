@@ -2,7 +2,7 @@ import { useState } from "react";
 import Track from "./Track";
 
 function TrackList({ tracks, onAction, actionLabel, onReorder }) {
-  const [dragIndex, setDragIndex] = useState(null)
+  const [dragIndex, setDragIndex] = useState(null);
   const [overIndex, setOverIndex] = useState(null);
 
   const handleDragStart = (index) => {
@@ -24,21 +24,22 @@ function TrackList({ tracks, onAction, actionLabel, onReorder }) {
     setDragIndex(null);
     setOverIndex(null);
   };
-  
+
   return (
     <ul className="track-list">
       {tracks.map((track, index) => (
-        <Track key={track.key} 
-        track={track} 
-        onAction={onAction} 
-        actionLabel={actionLabel} 
-        draggable={!!onReorder}
-        isDragging={dragIndex === index}
-        isDragOver={overIndex === index}
-        onDragStart={() => handleDragStart(index)}
-        onDragOver={(e) => handleDragOver(e, index)}
-        onDrop={() => handleDrop(index)}
-        onDragEnd={() => { setDragIndex(null); setOverIndex(null); }}
+        <Track
+          key={track.key}
+          track={track}
+          onAction={onAction}
+          actionLabel={actionLabel}
+          draggable={!!onReorder}
+          isDragging={dragIndex === index}
+          isDragOver={overIndex === index}
+          onDragStart={() => handleDragStart(index)}
+          onDragOver={(e) => handleDragOver(e, index)}
+          onDrop={() => handleDrop(index)}
+          onDragEnd={() => { setDragIndex(null); setOverIndex(null); }}
         />
       ))}
     </ul>
