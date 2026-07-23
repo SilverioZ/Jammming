@@ -85,7 +85,6 @@ function App() {
   return (
     <div className="app">
       <h1>Ja<span className="accent-m">mmm</span>ing</h1>
-
       {!username ? (
         <LoginForm onLogin={login} />
       ) : (
