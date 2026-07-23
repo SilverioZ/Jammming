@@ -9,6 +9,21 @@ const mockTracks = [
   { key: "t3", id: 3, name: "good 4 u", artist: "Olivia Rodrigo", album: "SOUR" },
   { key: "t4", id: 4, name: "As It Was", artist: "Harry Styles", album: "Harry's House" },
   { key: "t5", id: 5, name: "Anti-Hero", artist: "Taylor Swift", album: "Midnights" },
+  { key: "t6", id: 6, name: "Flowers", artist: "Miley Cyrus", album: "Endless Summer Vacation" },
+  { key: "t7", id: 7, name: "Cruel Summer", artist: "Taylor Swift", album: "Lover" },
+  { key: "t8", id: 8, name: "Unholy", artist: "Sam Smith & Kim Petras", album: "Gloria" },
+  { key: "t9", id: 9, name: "Vampire", artist: "Olivia Rodrigo", album: "GUTS" },
+  { key: "t10", id: 10, name: "Paint The Town Red", artist: "Doja Cat", album: "Scarlet" },
+  { key: "t11", id: 11, name: "Kill Bill", artist: "SZA", album: "SOS" },
+  { key: "t12", id: 12, name: "Watermelon Sugar", artist: "Harry Styles", album: "Fine Line" },
+  { key: "t13", id: 13, name: "Peaches", artist: "Justin Bieber", album: "Justice" },
+  { key: "t14", id: 14, name: "Golden Hour", artist: "JVKE", album: "This Is What Ads Are Made Of" },
+  { key: "t15", id: 15, name: "Espresso", artist: "Sabrina Carpenter", album: "Short n' Sweet" },
+  { key: "t16", id: 16, name: "Lovin On Me", artist: "Jack Harlow", album: "Jackman." },
+  { key: "t17", id: 17, name: "Snooze", artist: "SZA", album: "SOS" },
+  { key: "t18", id: 18, name: "Say Don't Go", artist: "Taylor Swift", album: "1989 (Taylor's Version)" },
+  { key: "t19", id: 19, name: "Rich Baby Daddy", artist: "Drake", album: "For All The Dogs" },
+  { key: "t20", id: 20, name: "Stick Season", artist: "Noah Kahan", album: "Stick Season" },
 ];
 
 function App() {
