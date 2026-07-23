@@ -27,9 +27,9 @@ function TrackList({ tracks, onAction, actionLabel, onReorder }) {
 
   return (
     <ul className="track-list">
-      {tracks.map((track, index) => (
+      {Array.isArray(tracks) && tracks.map((track, index) => (
         <Track
-          key={track.key}
+          key={track.id || `${track.name}-${index}`}
           track={track}
           onAction={onAction}
           actionLabel={actionLabel}
