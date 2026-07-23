@@ -104,7 +104,7 @@ function App() {
               playlistTracks={playlistTracks}
               onRemove={removeTrack}
               onRename={renamePlaylist}
-              onReorder={reorderPlaylist}
+              onReorder={reorderPlayList}
             />
           </div>
 
