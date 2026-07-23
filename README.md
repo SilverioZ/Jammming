@@ -2,7 +2,7 @@
 
 A playlist-building web app built with React and Vite, inspired by the Codecademy "Jammming" project. Search a track library, build a custom playlist, rename it, and save it to a user profile.
 
-This project was built as a learning exercise focused on **unidirectional data flow**, **component architecture**, and **state management** in React — currently using mock data and `localStorage`, with the codebase structured to make swapping in a real API (e.g. Spotify) straightforward later.
+This project was built as a learning exercise focused on **unidirectional data flow**, **component architecture**, and **state management** in React — using mock data and `localStorage` for persistence.
 
 ## Features
 
@@ -17,22 +17,20 @@ This project was built as a learning exercise focused on **unidirectional data f
 - [React](https://react.dev/) (functional components + hooks)
 - [Vite](https://vitejs.dev/) for build tooling and dev server
 - Plain CSS (no framework) for styling
-- `localStorage` for persistence (no backend yet)
+- `localStorage` for persistence (no backend)
 
 ## Project Structure
 
-```
 src/
-├── App.jsx                  # Root component — owns all shared state
-├── main.jsx                 # Entry point, mounts App
-├── index.css                # Global styles
+├── App.jsx # Root component — owns all shared state
+├── main.jsx # Entry point, mounts App
+├── index.css # Global styles
 └── components/
-    ├── SearchBar.jsx        # Filters tracks by search query
-    ├── SearchResults.jsx    # Displays search results
-    ├── Playlist.jsx         # Displays and renames the custom playlist
-    ├── TrackList.jsx        # Reusable list, shared by SearchResults & Playlist
-    └── Track.jsx             # Single track row
-```
+├── SearchBar.jsx # Filters tracks by search query
+├── SearchResults.jsx # Displays search results
+├── Playlist.jsx # Displays and renames the custom playlist
+├── TrackList.jsx # Reusable list, shared by SearchResults & Playlist
+└── Track.jsx # Single track row
 
 The app follows a unidirectional data flow: state lives in `App`, flows down to children as props, and changes flow back up through callback functions (e.g. `onAdd`, `onRemove`, `onRename`) — no component mutates state it doesn't own.
 
@@ -63,15 +61,14 @@ This project currently uses a **simulated login** for learning purposes — ther
 - Clicking **Save Playlist** writes the current playlist to `localStorage`, keyed to the username.
 - This data is local to your browser only — it is not shared across devices and is not visible to anyone else.
 
-This pattern mirrors the shape of real authentication (login → load user data → edit → save) without the complexity of a real backend, making it a natural foundation to build on later.
+This pattern mirrors the shape of real authentication (login → load user data → edit → save) without the complexity of a real backend.
 
 ## Roadmap / Future Improvements
 
-- [ ] Replace mock data with a real music API (e.g. Spotify Web API)
-- [ ] Replace simulated login with real authentication
 - [ ] Support multiple named playlists per user
-- [ ] Add search debouncing for real API calls
+- [ ] Add drag-and-drop track reordering
 - [ ] Improve accessibility and mobile responsiveness further
+- [ ] Add a proper backend/database if the project expands beyond a learning exercise
 
 ## Acknowledgments
 
