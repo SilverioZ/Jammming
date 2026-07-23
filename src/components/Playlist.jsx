@@ -35,7 +35,12 @@ function Playlist({ playlistName, playlistTracks, onRemove, onRename }) {
         </h2>
       )}
 
-      <TrackList tracks={playlistTracks} onAction={onRemove} actionLabel="− Remove" />
+      <TrackList 
+      tracks={playlistTracks} 
+      onAction={onRemove} 
+      actionLabel="− Remove" 
+      onReorder={onReorder}
+      />
     </div>
   );
 }

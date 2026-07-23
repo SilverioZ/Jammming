@@ -352,3 +352,21 @@ form button {
     animation: none;
   }
 }
+
+.track[draggable="true"] {
+  cursor: grab;
+}
+
+.track.dragging {
+  opacity: 0.4;
+}
+
+.track.drag-over {
+  border-top: 2px solid var(--gold);
+}
+
+.drag-handle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: grab;
+}

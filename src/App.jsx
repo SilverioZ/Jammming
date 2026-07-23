@@ -75,6 +75,13 @@ function App() {
     alert("Playlist saved!");
   };
 
+  const reorderPlayList = (fromIndex, toIndex) => {
+    const updated = [...playlistTracks];
+    const [moved] = updated.splice(fromIndex, 1);
+    updated.splice(toIndex, 0, moved);
+    setPlaylistTracks(updated);
+  };
+
   return (
     <div className="app">
       <h1>Jammming</h1>
@@ -97,6 +104,7 @@ function App() {
               playlistTracks={playlistTracks}
               onRemove={removeTrack}
               onRename={renamePlaylist}
+              onReorder={reorderPlaylist}
             />
           </div>
 
